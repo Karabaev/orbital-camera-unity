@@ -1,0 +1,8 @@
+{
+  "name": "com.karabaev.entities",
+  "displayName": "Entities",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Entities is framework for implementation MVP like architecture",
+  "author": "Karabaev Maksim"
+}
