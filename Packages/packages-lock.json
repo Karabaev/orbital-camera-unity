@@ -1,11 +1,46 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "809d23edae0df58fd0f61b4b6f67855c59d1b2fb"
+    },
+    "com.karabaev.descriptors.abstractions": {
+      "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.descriptors.abstractions.git?path=Assets",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ea0eda75ddb0159dee60fcbf45d0ea06f04a0de9"
+    },
+    "com.karabaev.descriptors.unity": {
+      "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.descriptors.unity.git?path=Assets",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b24db26fc40bcfd0159efd395f80d36465af2396"
+    },
     "com.karabaev.reactivetypes": {
       "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.reactivetypes.git?path=Assets",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "99835dd2b55a7a5de652bbec997cb55eb44d6897"
+    },
+    "com.karabaev.utilities": {
+      "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.utilities.git?path=Assets",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "890c130c4f7eaff10700531de245aaa98d2f8ebc"
+    },
+    "com.karabaev.utilities.unity": {
+      "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.utilities.unity.git?path=Assets",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a789d7b97ab0952085e1cb447edb7710adfe4446"
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",

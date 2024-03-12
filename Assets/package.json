@@ -1,8 +1,7 @@
 {
-  "name": "com.karabaev.entities",
-  "displayName": "Entities",
+  "name": "com.karabaev.camera.unity",
+  "displayName": "com.karabaev.camera.unity",
   "version": "0.1.0",
   "unity": "2022.3",
-  "description": "Entities is framework for implementation MVP like architecture",
   "author": "Karabaev Maksim"
 }
