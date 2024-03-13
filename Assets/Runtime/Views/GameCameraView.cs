@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using com.karabaev.camera.unity.Descriptors;
 using com.karabaev.camera.unity.States;
@@ -15,8 +14,12 @@ namespace com.karabaev.camera.unity.Views
     
     private float _currentZoom;
     private Vector2 _orbitAngles;
-    private Transform? _target;
+    private ICameraTarget? _target;
     private Vector3 _focusPoint;
+
+    private bool _isConstructed;
+    
+    private void Awake() => enabled = false;
 
     public void Construct(GameCameraConfigDescriptor config, IReadOnlyGameCameraState state, ICameraInputState inputState)
     {
@@ -28,45 +31,36 @@ namespace com.karabaev.camera.unity.Views
       _inputState = inputState;
       _state.Position.Changed += Model_OnPositionChanged;
       _state.Rotation.Changed += Model_OnRotationChanged;
-      _state.TargetObjectId.Changed += Model_OnTargetObjectIdChanged;
+      _state.Target.Changed += Model_OnTargetObjectIdChanged;
+      enabled = true;
+      _isConstructed = true;
     }
 
     private void Model_OnPositionChanged(Vector3 oldValue, Vector3 newValue) => transform.position = newValue;
 
     private void Model_OnRotationChanged(Vector3 oldValue, Vector3 newValue) => transform.eulerAngles = newValue;
 
-    private void Model_OnTargetObjectIdChanged(string? oldValue, string? newValue)
-    {
-      if(string.IsNullOrEmpty(newValue))
-      {
-        _target = null;
-        return;
-      }
-
-      var result = GameObject.Find(newValue);
-
-      if(result == null)
-        throw new NullReferenceException($"Target for camera is not found. TargetObjectId={newValue}");
-
-      _target = result.transform;
-    }
+    private void Model_OnTargetObjectIdChanged(ICameraTarget? oldValue, ICameraTarget? newValue) => _target = newValue;
 
     private void OnEnable()
     {
       _state.Position.Changed -= Model_OnPositionChanged;
       _state.Rotation.Changed -= Model_OnRotationChanged;
-      _state.TargetObjectId.Changed -= Model_OnTargetObjectIdChanged;
+      _state.Target.Changed -= Model_OnTargetObjectIdChanged;
       
       _state.Position.Changed += Model_OnPositionChanged;
       _state.Rotation.Changed += Model_OnRotationChanged;
-      _state.TargetObjectId.Changed += Model_OnTargetObjectIdChanged;
+      _state.Target.Changed += Model_OnTargetObjectIdChanged;
     }
 
     private void OnDisable()
     {
+      if(!_isConstructed)
+        return;
+      
       _state.Position.Changed -= Model_OnPositionChanged;
       _state.Rotation.Changed -= Model_OnRotationChanged;
-      _state.TargetObjectId.Changed -= Model_OnTargetObjectIdChanged;
+      _state.Target.Changed -= Model_OnTargetObjectIdChanged;
     }
 
     private void Update()
@@ -109,7 +103,7 @@ namespace com.karabaev.camera.unity.Views
       if(_target == null)
         return;
 
-      var targetPosition = _target.position;
+      var targetPosition = _target.PositionFunc.Invoke();
       
       var distance = Vector3.Distance(targetPosition, _focusPoint);
       var t = 1.0f;

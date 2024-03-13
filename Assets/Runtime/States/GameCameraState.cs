@@ -1,3 +1,4 @@
+using com.karabaev.camera.unity.Views;
 using com.karabaev.reactivetypes.Property;
 using UnityEngine;
 
@@ -9,19 +10,19 @@ namespace com.karabaev.camera.unity.States
     
     public ReactiveProperty<Vector3> Rotation { get; } = new(default);
     
-    public ReactiveProperty<string?> TargetObjectId { get; } = new(default);
+    public ReactiveProperty<ICameraTarget?> Target { get; } = new(default);
 
     IReadOnlyReactiveProperty<Vector3> IReadOnlyGameCameraState.Position => Position;
 
     IReadOnlyReactiveProperty<Vector3> IReadOnlyGameCameraState.Rotation => Rotation;
 
-    IReadOnlyReactiveProperty<string?> IReadOnlyGameCameraState.TargetObjectId => TargetObjectId;
+    IReadOnlyReactiveProperty<ICameraTarget?> IReadOnlyGameCameraState.Target => Target;
 
     IWriteOnlyReactiveProperty<Vector3> IWriteOnlyGameCameraState.Position => Position;
 
     IWriteOnlyReactiveProperty<Vector3> IWriteOnlyGameCameraState.Rotation => Rotation;
 
-    IWriteOnlyReactiveProperty<string?> IWriteOnlyGameCameraState.TargetObjectId => TargetObjectId;
+    IWriteOnlyReactiveProperty<ICameraTarget?> IWriteOnlyGameCameraState.Target => Target;
   }
 
   public interface IReadOnlyGameCameraState
@@ -30,7 +31,7 @@ namespace com.karabaev.camera.unity.States
     
     IReadOnlyReactiveProperty<Vector3> Rotation { get; }
     
-    IReadOnlyReactiveProperty<string?> TargetObjectId { get; }
+    IReadOnlyReactiveProperty<ICameraTarget?> Target { get; }
   }
   
   public interface IWriteOnlyGameCameraState
@@ -39,6 +40,6 @@ namespace com.karabaev.camera.unity.States
     
     IWriteOnlyReactiveProperty<Vector3> Rotation { get; }
     
-    IWriteOnlyReactiveProperty<string?> TargetObjectId { get; }
+    IWriteOnlyReactiveProperty<ICameraTarget?> Target { get; }
   }
 }

@@ -1,8 +1,10 @@
-﻿using com.karabaev.descriptors.abstractions;
+﻿using System;
+using com.karabaev.descriptors.abstractions;
 using UnityEngine;
 
 namespace com.karabaev.camera.unity.Descriptors
 {
+  [Serializable]
   public class GameCameraConfigDescriptor : IDescriptor
   {
     [field: SerializeField]
