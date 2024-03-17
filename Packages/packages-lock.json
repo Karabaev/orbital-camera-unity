@@ -12,21 +12,21 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ea0eda75ddb0159dee60fcbf45d0ea06f04a0de9"
+      "hash": "46c48b90297e2ea143ee1e7b3331a4d6c1b1d96f"
     },
     "com.karabaev.descriptors.unity": {
       "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.descriptors.unity.git?path=Assets",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b24db26fc40bcfd0159efd395f80d36465af2396"
+      "hash": "6799dc9f032f8029a85f5792ae502759bcbb2797"
     },
     "com.karabaev.reactivetypes": {
       "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.reactivetypes.git?path=Assets",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "99835dd2b55a7a5de652bbec997cb55eb44d6897"
+      "hash": "1855ad3e0911d5294379e9ed08d070dbe051df72"
     },
     "com.karabaev.utilities": {
       "version": "https://git.jetbrains.space/rdds2/gk/com.karabaev.utilities.git?path=Assets",
